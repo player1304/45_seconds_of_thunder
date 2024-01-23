@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcsstgcr15jeu"]
+
+[ext_resource type="Texture2D" uid="uid://dpt1gaauw70wc" path="res://enemies/enemy_default.png" id="1_i6xj5"]
+[ext_resource type="Script" path="res://enemies/enemy_default.gd" id="1_sbelx"]
+[ext_resource type="PackedScene" uid="uid://di7sf0psxrch5" path="res://bullet_enemy.tscn" id="2_pnvue"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1y2v"]
+atlas = ExtResource("1_i6xj5")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha672"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1y2v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gstv1"]
+size = Vector2(46, 93)
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
+script = ExtResource("1_sbelx")
+Bullet = ExtResource("2_pnvue")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ha672")
+metadata/_edit_lock_ = true
+
+[node name="FiringFreq" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+position = Vector2(-19, -0.5)
+shape = SubResource("RectangleShape2D_gstv1")
+
+[node name="Muzzles" type="CanvasGroup" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Muzzles"]
+position = Vector2(-19, 44)
+rotation = 3.14159
+
+[node name="Marker2D2" type="Marker2D" parent="Muzzles"]
+position = Vector2(-23, 23)
+rotation = 3.14159
+
+[node name="Marker2D3" type="Marker2D" parent="Muzzles"]
+position = Vector2(-23, -23)
+rotation = 3.14159
+
+[node name="Marker2D4" type="Marker2D" parent="Muzzles"]
+position = Vector2(-19, -44)
+rotation = 3.14159
+
+[connection signal="timeout" from="FiringFreq" to="." method="_on_firing_freq_timeout"]
+[connection signal="area_entered" from="EnemyHitBox" to="." method="_on_area_2d_area_entered"]

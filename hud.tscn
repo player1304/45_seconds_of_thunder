@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://lkotpm7qn3gd"]
+
+[ext_resource type="Script" path="res://heart_bar.gd" id="1_ox8bu"]
+[ext_resource type="Texture2D" uid="uid://dfio3rquuxlug" path="res://assets/hud_heartFull.png" id="1_un0l0"]
+
+[sub_resource type="GDScript" id="GDScript_4hbv1"]
+script/source = "extends Label
+
+
+func _process(_delta):
+	self.text = \"Score: \" + str(Globals.score)
+"
+
+[sub_resource type="GDScript" id="GDScript_h1hvd"]
+script/source = "extends Label
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	self.text = \"Time left: \" + str(Globals.game_remaining_time)
+"
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 850.0
+offset_top = 17.0
+offset_right = 940.0
+offset_bottom = 40.0
+text = "Score:"
+horizontal_alignment = 2
+script = SubResource("GDScript_4hbv1")
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 758.0
+offset_top = 40.0
+offset_right = 940.0
+offset_bottom = 63.0
+text = "Time remaining:"
+horizontal_alignment = 2
+script = SubResource("GDScript_h1hvd")
+
+[node name="HeartBar" type="HBoxContainer" parent="."]
+offset_left = 20.0
+offset_top = 17.0
+offset_right = 246.0
+offset_bottom = 62.0
+script = ExtResource("1_ox8bu")
+
+[node name="1" type="TextureRect" parent="HeartBar"]
+layout_mode = 2
+texture = ExtResource("1_un0l0")
+stretch_mode = 4
+
+[node name="2" type="TextureRect" parent="HeartBar"]
+layout_mode = 2
+texture = ExtResource("1_un0l0")
+stretch_mode = 4
+
+[node name="3" type="TextureRect" parent="HeartBar"]
+layout_mode = 2
+texture = ExtResource("1_un0l0")
+stretch_mode = 4
+
+[node name="4" type="TextureRect" parent="HeartBar"]
+layout_mode = 2
+texture = ExtResource("1_un0l0")
+stretch_mode = 4
+
+[node name="5" type="TextureRect" parent="HeartBar"]
+layout_mode = 2
+texture = ExtResource("1_un0l0")
+stretch_mode = 4

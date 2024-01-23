@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://d23r3wahqlbkk"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_cwfek"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_cwfek")
+
+[node name="NewGameButton" type="Button" parent="."]
+offset_left = 398.0
+offset_top = 374.0
+offset_right = 561.0
+offset_bottom = 423.0
+text = "Another round
+"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 412.0
+offset_top = 201.0
+offset_right = 549.0
+offset_bottom = 237.0
+text = "Game over"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 412.0
+offset_top = 250.0
+offset_right = 549.0
+offset_bottom = 286.0
+text = "Your score is: "
+horizontal_alignment = 1
+
+[connection signal="button_up" from="NewGameButton" to="." method="_on_new_game_button_button_up"]
