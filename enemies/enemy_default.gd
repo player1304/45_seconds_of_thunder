@@ -13,11 +13,12 @@ func _physics_process(delta):
 
 func shoot():
 	# traverse muzzles and instantiate the bullet
+	var MainScene = self.find_parent("Main")
 	var muzzles : Array[Node] = $Muzzles.get_children()
 	for m in muzzles:
 		var b = Bullet.instantiate()
-		self.add_child(b)
-		b.transform = m.transform
+		MainScene.add_child(b)
+		b.transform = m.global_transform
 		b.add_to_group("EnemyBullets")
 
 func _on_firing_freq_timeout():
@@ -27,9 +28,9 @@ func _on_firing_freq_timeout():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("PlayerBullets"):
 		hp -= Globals.player_bullet_strength
-		print("PlayerBullet hit me! My hp now at: " + str(hp))
+		#print("PlayerBullet hit me! My hp now at: " + str(hp))
 	
 	if self.hp <= 0:
 		Globals.score += 1
-		print("Enemy killed, global score: " + str(Globals.score))
+		#print("Enemy killed, global score: " + str(Globals.score))
 		self.queue_free()

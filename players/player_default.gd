@@ -2,11 +2,12 @@
 extends CharacterBody2D
 
 @export var Bullet : PackedScene
+var shield_strength : int = Globals.player_shield_max_strength
 var screensize = Globals.SCREEN_SIZE
 var speed = 300
 var dragging = false
 @onready var last_position : Vector2 = get_viewport().get_mouse_position()
-
+	
 func _physics_process(delta):
 	var v : Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	position += v * speed * delta
@@ -25,7 +26,16 @@ func _physics_process(delta):
 	
 	last_position = position
 	
+	# if player life <=0, end game
+	if Globals.player_life <= 0:
+		print("Game over")
+		get_tree().change_scene_to_file("res://game_over.tscn")
+	
 	move_and_slide()
+
+func _process(_delta):
+	if shield_strength <= 0:
+		$ShieldHitBox/ShieldAnimation.modulate.a = 0.01 # almost invisible
 
 func shoot():
 	var muzzles : Array[Node] = $Muzzles.get_children()
@@ -46,5 +56,15 @@ func _on_player_hit_box_area_entered(area):
 		print("Player collided with enemy.")
 		Globals.player_life = 0
 	elif area.is_in_group("EnemyBullets"): # Hit by bullet
-		Globals.player_life -= 1
-		print("Player Hit! life: " + str(Globals.player_life))
+		if shield_strength <= 0: # no shield, take HP hit
+			Globals.player_life -= 1
+			print("Player Hit! life: " + str(Globals.player_life))
+		else: # reduce shield
+			shield_strength -= 1
+			print("Shield hit! shield at: " + str(shield_strength))
+
+
+func _on_shield_restore_timer_timeout():
+	if shield_strength < Globals.player_shield_max_strength: # shield replenishes automatically
+		shield_strength += 1
+		$ShieldHitBox/ShieldAnimation.modulate.a = 0.5 # normal

@@ -4,8 +4,9 @@ const SCREEN_SIZE = Vector2(960,640)
 
 var bullet_speed_player : int
 var game_remaining_time : float # updated by GameTimer in Main
-var player_bullet_strength: int
+var player_bullet_strength : int
 var player_life : int
+var player_shield_max_strength : int = 2
 var score : int
 
 func _ready():

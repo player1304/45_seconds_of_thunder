@@ -31,7 +31,7 @@ sprite_frames = SubResource("SpriteFrames_ha672")
 metadata/_edit_lock_ = true
 
 [node name="FiringFreq" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 1.2
 autostart = true
 
 [node name="EnemyHitBox" type="Area2D" parent="."]
@@ -46,14 +46,6 @@ shape = SubResource("RectangleShape2D_gstv1")
 
 [node name="Marker2D" type="Marker2D" parent="Muzzles"]
 position = Vector2(-19, 44)
-rotation = 3.14159
-
-[node name="Marker2D2" type="Marker2D" parent="Muzzles"]
-position = Vector2(-23, 23)
-rotation = 3.14159
-
-[node name="Marker2D3" type="Marker2D" parent="Muzzles"]
-position = Vector2(-23, -23)
 rotation = 3.14159
 
 [node name="Marker2D4" type="Marker2D" parent="Muzzles"]

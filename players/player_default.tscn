@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ciuyqnh57atpr"]
+[gd_scene load_steps=10 format=3 uid="uid://ciuyqnh57atpr"]
 
 [ext_resource type="Texture2D" uid="uid://m28aikn0xih7" path="res://players/player_default.png" id="1_fxwod"]
 [ext_resource type="Script" path="res://players/player_default.gd" id="1_qeggw"]
 [ext_resource type="PackedScene" uid="uid://drd8repepscoc" path="res://bullet_player.tscn" id="2_3e3a5"]
+[ext_resource type="Texture2D" uid="uid://bnuaqdnf2ctkl" path="res://assets/shield.png" id="4_m8r4s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li75v"]
 atlas = ExtResource("1_fxwod")
@@ -22,11 +23,25 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cixb"]
 size = Vector2(75, 55)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ptb3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_m8r4s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_efvoo"]
+radius = 50.0899
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qeggw")
 Bullet = ExtResource("2_3e3a5")
 
-[node name="Animation" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ks6je")
 metadata/_edit_lock_ = true
 
@@ -35,6 +50,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
+visible = false
 position = Vector2(-3.5, -0.5)
 shape = SubResource("RectangleShape2D_1cixb")
 
@@ -50,5 +66,20 @@ position = Vector2(16, 16)
 wait_time = 0.2
 autostart = true
 
+[node name="ShieldHitBox" type="Area2D" parent="."]
+
+[node name="ShieldAnimation" type="AnimatedSprite2D" parent="ShieldHitBox"]
+modulate = Color(1, 1, 1, 0.439216)
+sprite_frames = SubResource("SpriteFrames_3ptb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldHitBox"]
+visible = false
+shape = SubResource("CircleShape2D_efvoo")
+
+[node name="ShieldRestoreTimer" type="Timer" parent="ShieldHitBox"]
+wait_time = 4.0
+autostart = true
+
 [connection signal="area_entered" from="PlayerHitBox" to="." method="_on_player_hit_box_area_entered"]
 [connection signal="timeout" from="FiringFreq" to="." method="_on_firing_freq_timeout"]
+[connection signal="timeout" from="ShieldHitBox/ShieldRestoreTimer" to="." method="_on_shield_restore_timer_timeout"]

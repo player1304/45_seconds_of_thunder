@@ -1,10 +1,11 @@
 ## 当前任务
-- Shield机制
-- 高分榜
+- Shield机制 - done
 - Boss
 - Rolling background
 - SFX
 - 升级系统
+- 高分榜
+- More planes and bosses!
 
 ## Introduction
 45 Seconds of Thunder is a Raiden-like game that is played in landscape orientation, has procedurally generated foes, and has a rogue-lite element where each game is no more than 45 seconds long, and 
