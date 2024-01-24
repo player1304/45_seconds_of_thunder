@@ -1,6 +1,6 @@
 ## 当前任务
-- Shield机制 - done
-- Boss
+- Shield - done
+- Boss - base done
 - Rolling background
 - SFX
 - 升级系统

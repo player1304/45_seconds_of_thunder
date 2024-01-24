@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkdd2lk2psj8y"]
+
+[ext_resource type="Texture2D" uid="uid://bsquc4mh5s5fe" path="res://assets/background_tile.png" id="1_3krn4"]
+[ext_resource type="Script" path="res://background.gd" id="1_uutmu"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_uutmu")
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundLayer"]
+position = Vector2(480, 320)
+texture = ExtResource("1_3krn4")

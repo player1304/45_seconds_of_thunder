@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://btbubehtncuvi"]
+[gd_scene load_steps=5 format=3 uid="uid://btbubehtncuvi"]
 
 [ext_resource type="PackedScene" uid="uid://ciuyqnh57atpr" path="res://players/player_default.tscn" id="1_l0gu8"]
-[ext_resource type="PackedScene" uid="uid://bcsstgcr15jeu" path="res://enemies/enemy_default.tscn" id="2_srlfg"]
 [ext_resource type="PackedScene" uid="uid://lkotpm7qn3gd" path="res://hud.tscn" id="3_eswna"]
+[ext_resource type="PackedScene" uid="uid://cb1ytbxbbikhb" path="res://enemies/boss_default.tscn" id="3_uf3mf"]
+[ext_resource type="PackedScene" uid="uid://dkdd2lk2psj8y" path="res://background.tscn" id="4_qu4ah"]
 
-[node name="TestScene" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_l0gu8")]
-position = Vector2(341, 93)
-
-[node name="Enemy" parent="." instance=ExtResource("2_srlfg")]
-position = Vector2(527, 183)
+[node name="Main" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("3_eswna")]
+
+[node name="Background" parent="." instance=ExtResource("4_qu4ah")]
+
+[node name="Player" parent="." instance=ExtResource("1_l0gu8")]
+position = Vector2(202, 331)
+
+[node name="Boss" parent="." instance=ExtResource("3_uf3mf")]
+position = Vector2(804, 204)
