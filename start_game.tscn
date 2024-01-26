@@ -6,24 +6,67 @@
 script = ExtResource("1_gg00e")
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 413.0
-offset_top = 219.0
-offset_right = 554.0
-offset_bottom = 289.0
+offset_left = 348.0
+offset_top = 195.0
+offset_right = 489.0
+offset_bottom = 265.0
 text = "Start"
 
 [node name="UpgradesButton" type="Button" parent="."]
-offset_left = 413.0
-offset_top = 352.0
-offset_right = 554.0
-offset_bottom = 422.0
+offset_left = 348.0
+offset_top = 358.0
+offset_right = 489.0
+offset_bottom = 428.0
 text = "Upgrades"
 
-[node name="HighScoresBlock" type="Label" parent="."]
-offset_left = 644.0
-offset_top = 169.0
-offset_right = 942.0
-offset_bottom = 412.0
-text = "HighScores"
+[node name="HighScoreLabel" type="Label" parent="."]
+offset_left = 575.0
+offset_top = 195.0
+offset_right = 680.0
+offset_bottom = 218.0
+text = "High scores"
+
+[node name="HighScores" type="CanvasGroup" parent="."]
+position = Vector2(575, 155)
+
+[node name="Score0" type="Label" parent="HighScores"]
+unique_name_in_owner = true
+offset_top = 84.0
+offset_right = 40.0
+offset_bottom = 107.0
+size_flags_horizontal = 0
+text = "1: "
+
+[node name="Score1" type="Label" parent="HighScores"]
+unique_name_in_owner = true
+offset_top = 124.0
+offset_right = 40.0
+offset_bottom = 147.0
+size_flags_horizontal = 0
+text = "2:"
+
+[node name="Score2" type="Label" parent="HighScores"]
+unique_name_in_owner = true
+offset_top = 165.0
+offset_right = 40.0
+offset_bottom = 188.0
+size_flags_horizontal = 0
+text = "3:"
+
+[node name="Score3" type="Label" parent="HighScores"]
+unique_name_in_owner = true
+offset_top = 206.0
+offset_right = 40.0
+offset_bottom = 229.0
+size_flags_horizontal = 0
+text = "4:"
+
+[node name="Score4" type="Label" parent="HighScores"]
+unique_name_in_owner = true
+offset_top = 242.0
+offset_right = 40.0
+offset_bottom = 265.0
+size_flags_horizontal = 0
+text = "5:"
 
 [connection signal="button_up" from="StartButton" to="." method="_on_start_button_button_up"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl41dqtwltj18"]
+[gd_scene load_steps=6 format=3 uid="uid://dl41dqtwltj18"]
 
 [ext_resource type="PackedScene" uid="uid://lkotpm7qn3gd" path="res://hud.tscn" id="1_3g5tk"]
 [ext_resource type="Script" path="res://main.gd" id="1_nc7kh"]
 [ext_resource type="PackedScene" uid="uid://ciuyqnh57atpr" path="res://players/player_default.tscn" id="2_2bgn8"]
 [ext_resource type="PackedScene" uid="uid://dkdd2lk2psj8y" path="res://background.tscn" id="3_yciwo"]
+[ext_resource type="AudioStream" uid="uid://dv72ltl6btipp" path="res://assets/sfx/tense_drive.ogg" id="5_nbw5v"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_nc7kh")
@@ -26,6 +27,9 @@ one_shot = true
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nbw5v")
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="BossTimer" to="." method="_on_boss_timer_timeout"]

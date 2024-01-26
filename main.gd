@@ -9,9 +9,10 @@ var boss_list = [boss0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$GameTimer.start() # 45s
-	$BossTimer.start() # 30s
+	$GameTimer.start() # end game after 45s
+	$BossTimer.start() # start after 30s
 	#$EnemyTimer.start() # every 1.5 seconds, will start auto
+	$BackgroundMusic.play() # start playing the music
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

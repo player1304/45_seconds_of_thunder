@@ -47,6 +47,14 @@ shape = SubResource("RectangleShape2D_gstv1")
 position = Vector2(-16, -69)
 rotation = 3.14159
 
+[node name="Marker2D5" type="Marker2D" parent="Muzzles"]
+position = Vector2(-10, -88)
+rotation = 2.79253
+
+[node name="Marker2D6" type="Marker2D" parent="Muzzles"]
+position = Vector2(-10, 86)
+rotation = 3.49066
+
 [node name="Marker2D2" type="Marker2D" parent="Muzzles"]
 position = Vector2(-25, -44)
 rotation = 3.14159
@@ -58,6 +66,10 @@ rotation = 3.14159
 [node name="Marker2D4" type="Marker2D" parent="Muzzles"]
 position = Vector2(-17, 77)
 rotation = 3.14159
+
+[node name="OsciTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [connection signal="timeout" from="FiringFreq" to="." method="_on_firing_freq_timeout"]
 [connection signal="area_entered" from="EnemyHitBox" to="." method="_on_area_2d_area_entered"]

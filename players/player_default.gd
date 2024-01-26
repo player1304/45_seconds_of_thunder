@@ -26,12 +26,14 @@ func _physics_process(delta):
 	
 	last_position = position
 	
+	move_and_slide()
+		
 	# if player life <=0, end game
 	if Globals.player_life <= 0:
 		print("Game over")
 		get_tree().change_scene_to_file("res://game_over.tscn")
 	
-	move_and_slide()
+
 
 func _process(_delta):
 	if shield_strength <= 0:
@@ -49,6 +51,7 @@ func shoot():
 func _on_firing_freq_timeout():
 	shoot()
 	#print("bullet firing cancelled for debug")
+	$BulletSound.play()
 
 
 func _on_player_hit_box_area_entered(area):
