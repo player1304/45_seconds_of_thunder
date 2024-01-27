@@ -61,7 +61,7 @@ func _on_player_hit_box_area_entered(area):
 	elif area.is_in_group("EnemyBullets"): # Hit by bullet
 		if shield_strength <= 0: # no shield, take HP hit
 			Globals.player_life -= 1
-			print("Player Hit! life: " + str(Globals.player_life))
+			#print("Player Hit! life: " + str(Globals.player_life))
 		else: # reduce shield
 			shield_strength -= 1
 			print("Shield hit! shield at: " + str(shield_strength))

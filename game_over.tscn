@@ -22,6 +22,13 @@ offset_bottom = 237.0
 text = "Game over"
 horizontal_alignment = 1
 
+[node name="NewUpgradesLabel" type="Label" parent="."]
+offset_left = 362.0
+offset_top = 302.0
+offset_right = 599.0
+offset_bottom = 325.0
+text = "New upgrade points awarded: "
+
 [node name="ScoreLabel" type="Label" parent="."]
 offset_left = 412.0
 offset_top = 250.0

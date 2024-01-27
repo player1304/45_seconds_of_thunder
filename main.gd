@@ -20,7 +20,7 @@ func _process(_delta):
 
 
 func _on_boss_timer_timeout():
-	print("boss should appear, no new enemies")
+	#print("boss should appear, no new enemies")
 	$EnemyTimer.stop() # no new enemies
 	randomize()
 	spawn_boss()

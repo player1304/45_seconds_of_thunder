@@ -13,7 +13,7 @@ func _on_body_entered(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("EnemyBullets"):
-		print("PlayerBullet cancelled")
+		#print("PlayerBullet cancelled")
 		self.queue_free()
 
 

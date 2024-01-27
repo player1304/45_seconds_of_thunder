@@ -13,7 +13,7 @@ func _on_player_hit():
 
 func _on_area_entered(area):
 	if area.is_in_group("PlayerBullets"):
-		print("Bullet cancelled")
+		#print("Bullet cancelled")
 		self.queue_free()
 	elif area.name == "PlayerHitBox":
 		player_hit.emit()

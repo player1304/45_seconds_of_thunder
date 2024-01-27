@@ -5,11 +5,12 @@
 - Rolling background - done
 - SFX - done
 - High scores - done
-- Upgrades
+- Upgrades - done
 - Animation for player when moving
 - Cover pictures for start/game over, and a logo
 
 ### Other TODOs:
+- CRITICAL android screen size?
 - if there are no regular enemy in the base phase, spawn_enemy
 - Should play another GameOverSound if boss defeated
 - Boss should have **missiles**

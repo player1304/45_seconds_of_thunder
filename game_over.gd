@@ -8,11 +8,16 @@ func _ready():
 	$GameOverSound.play()
 	
 	if current_score > min_score:
-		print("TODO new high score")
 		Globals.saved_params.high_scores.append(current_score)
 		Globals.saved_params.high_scores.sort_custom(func(a,b): return a>b) # descending
-		Globals.saved_params.high_scores.pop_back() # remove last one
-		#print(Globals.high_scores)
+		Globals.saved_params.high_scores.pop_back() # remove last score from highscores
+		
+		# 1 upgrade for every 5 above min
+		var new_ups : int = (current_score - min_score) / 5
+		Globals.saved_params.upgrades += new_ups # decimal discarded
+		$NewUpgradesLabel.text = "New upgrade points awarded: " + str(new_ups)
+	else:
+		$NewUpgradesLabel.text = ""
 
 	Globals.save_game()
 

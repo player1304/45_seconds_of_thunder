@@ -15,12 +15,12 @@ func _physics_process(delta):
 	# make the boss oscillate from top to bottom and back to top
 	if $OsciTimer.is_stopped() == true: # timer not running
 		boss_in_which_half = check_which_half()
-		print("boss in which half?" + str(boss_in_which_half))
+		#print("boss in which half?" + str(boss_in_which_half))
 		var osci_int : int = randi_range(2, 5) # random osci interval
 		$OsciTimer.wait_time = osci_int
-		print("how long to osci? " + str(osci_int))
+		#print("how long to osci? " + str(osci_int))
 		$OsciTimer.start()
-		print("Timer started")
+		#print("Timer started")
 	else: # timer is running
 		position.y += boss_in_which_half * speed * delta
 		position.y = clamp(position.y, 50, screensize.y - 50)
