@@ -4,7 +4,7 @@
 - Boss - base done
 - Rolling background - done
 - SFX - done
-- High scores - undergoing
+- High scores - done
 - Upgrades
 - Animation for player when moving
 - Cover pictures for start/game over, and a logo

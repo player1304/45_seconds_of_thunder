@@ -6,7 +6,7 @@ func _ready():
 	
 	# update high score board
 	var score_labels : Array[Node] = [%Score0, %Score1, %Score2, %Score3, %Score4]
-	var high_scores = Globals.high_scores
+	var high_scores = Globals.saved_params["high_scores"]
 	high_scores.sort_custom(func(a,b): return a>b)
 	for i in range(0,5):
 		if high_scores.size() < (i+1): # not enough high scores
@@ -24,19 +24,18 @@ func _unhandled_input(_event):
 func load_game():
 	"""load game settings and high scores from save file"""
 	var save_path = Globals.save_path
-	var saved_params : Array = [Globals.high_scores, Globals.bullet_speed_player, 
-							Globals.player_bullet_strength, Globals.player_shield_max_strength]
+	#var saved_params : Array = [Globals.high_scores, Globals.bullet_speed_player, 
+							#Globals.player_bullet_strength, Globals.player_shield_max_strength]
 	
 	if FileAccess.file_exists(save_path):
-		print("found save file")
+		print("Found save file")
 		var file = FileAccess.open(save_path, FileAccess.READ)
-		for v in saved_params: # TODO URGENT 没有真的load上？第一次打开程序会出问题
-			# v是variables的内容，没有直接调用variable本身
-			print(file.get_var())
-			print("loaded " + str(v))
+		Globals.saved_params = file.get_var(true)
+		print(Globals.saved_params)
+		print(type_string(typeof(Globals.saved_params)))
 			
 	else:
-		print("save file not found")
+		print("Save file not found")
 
 func reset_game_vars():
 	"""reset game variables"""

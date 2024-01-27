@@ -1,7 +1,7 @@
 # bullet of player
 extends Area2D
 
-var speed = Globals.bullet_speed_player # can be updated when instantiated
+var speed = Globals.saved_params.bullet_speed_player # can be updated when instantiated
 signal enemy_hit
 
 func _physics_process(delta):

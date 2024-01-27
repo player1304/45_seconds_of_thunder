@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 @export var Bullet : PackedScene
-var shield_strength : int = Globals.player_shield_max_strength
+var shield_strength : int = Globals.saved_params.player_shield_max_strength
 var screensize = Globals.SCREEN_SIZE
 var speed = 300
 var dragging = false
@@ -44,7 +44,7 @@ func shoot():
 	for m in muzzles:
 		var b = Bullet.instantiate()
 		owner.add_child(b)
-		b.speed = Globals.bullet_speed_player
+		b.speed = Globals.saved_params.bullet_speed_player
 		b.transform = m.global_transform
 		b.add_to_group("PlayerBullets")
 
@@ -68,6 +68,7 @@ func _on_player_hit_box_area_entered(area):
 
 
 func _on_shield_restore_timer_timeout():
-	if shield_strength < Globals.player_shield_max_strength: # shield replenishes automatically
+	if shield_strength < Globals.saved_params.player_shield_max_strength: # shield replenishes automatically
 		shield_strength += 1
+	else: # return shield transparency
 		$ShieldHitBox/ShieldAnimation.modulate.a = 0.5 # normal
