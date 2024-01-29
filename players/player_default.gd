@@ -39,6 +39,13 @@ func _process(_delta):
 	if shield_strength <= 0:
 		$ShieldHitBox/ShieldAnimation.modulate.a = 0.01 # almost invisible
 
+	# animation
+	if Input.is_action_just_pressed('ui_up'):
+		$AnimatedSprite2D.play("up")
+	elif Input.is_action_just_pressed('ui_down'):
+		$AnimatedSprite2D.play("down")
+
+
 func shoot():
 	var muzzles : Array[Node] = $Muzzles.get_children()
 	for m in muzzles:
