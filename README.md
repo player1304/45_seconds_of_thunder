@@ -11,7 +11,8 @@
 
 ### Other TODOs:
 - if there are no regular enemy in the base phase, spawn_enemy
-- Should play another GameOverSound if boss defeated
+- Should play another GameOverSound if boss defeated 
+	- just have a new scene of "game_won" instead of game_over
 - Boss should have **missiles**
 - More planes and bosses
 

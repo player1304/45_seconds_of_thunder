@@ -38,6 +38,8 @@ func _physics_process(delta):
 func _process(_delta):
 	if shield_strength <= 0:
 		$ShieldHitBox/ShieldAnimation.modulate.a = 0.01 # almost invisible
+	elif shield_strength == Globals.saved_params.player_shield_max_strength:
+		$ShieldHitBox/ShieldAnimation.modulate.a = 0.5 # restored
 
 	# animation
 	if Input.is_action_just_pressed('ui_up'):

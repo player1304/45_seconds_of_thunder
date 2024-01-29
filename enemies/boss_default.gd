@@ -5,7 +5,7 @@ extends CharacterBody2D
 var boss_in_which_half : int
 var screensize = Globals.screensize
 var speed = 20
-var hp = 300
+var hp = 400
 
 func _physics_process(delta):
 	position.x -= speed * delta # will automatically go left
