@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 @export var Bullet : PackedScene
-var screensize = Globals.SCREEN_SIZE
+var screensize = Globals.screensize
 var speed = 50
 var hp = 100
 

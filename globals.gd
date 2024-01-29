@@ -1,6 +1,6 @@
 extends Node2D
 
-const SCREEN_SIZE = Vector2(960,640)
+#const SCREEN_SIZE = Vector2(960,640)
 
 # per game variables, should be reset each game
 var game_remaining_time : float # updated by GameTimer in Main
@@ -14,12 +14,11 @@ var saved_params : Dictionary = {"high_scores": [0,0,0,0,0],
 								"player_shield_max_strength": 2,
 								"upgrades": 0}
 
-#var high_scores : Array = saved_params["high_scores"]
+# the current viewport size, updated in _process
+var screensize
 
-# player upgradable settings
-#var bullet_speed_player : int = saved_params["bullet_speed_player"]
-#var player_bullet_strength : int = saved_params["player_bullet_strength"]
-#var player_shield_max_strength : int = saved_params["player_shield_max_strength"]
+func _process(_delta):
+	screensize = get_viewport().get_visible_rect().size
 
 func save_game():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)

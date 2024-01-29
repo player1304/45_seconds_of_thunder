@@ -23,21 +23,27 @@ func _process(_delta):
 [node name="HUD" type="CanvasLayer"]
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 850.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -203.0
 offset_top = 17.0
-offset_right = 940.0
+offset_right = -113.0
 offset_bottom = 40.0
+grow_horizontal = 0
 text = "Score:"
-horizontal_alignment = 2
 script = SubResource("GDScript_4hbv1")
 
 [node name="TimeLabel" type="Label" parent="."]
-offset_left = 758.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -203.0
 offset_top = 40.0
-offset_right = 940.0
+offset_right = -21.0
 offset_bottom = 63.0
+grow_horizontal = 0
 text = "Time remaining:"
-horizontal_alignment = 2
 script = SubResource("GDScript_h1hvd")
 
 [node name="HeartBar" type="HBoxContainer" parent="."]

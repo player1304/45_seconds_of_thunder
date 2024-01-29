@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var Bullet : PackedScene
 var shield_strength : int = Globals.saved_params.player_shield_max_strength
-var screensize = Globals.SCREEN_SIZE
+var screensize = Globals.screensize
 var speed = 300
 var dragging = false
 @onready var last_position : Vector2 = get_viewport().get_mouse_position()

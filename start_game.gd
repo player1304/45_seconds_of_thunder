@@ -84,4 +84,4 @@ func _on_reset_all_btn_button_up():
 							"bullet_speed_player": 500, 
 							"player_bullet_strength": 10, 
 							"player_shield_max_strength": 2,
-							"upgrades": 40}
+							"upgrades": 500}
